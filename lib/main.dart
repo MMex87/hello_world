@@ -53,16 +53,21 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+      int x, y, z;
       if(_counter > 50){
         _counter = 1;
       }
 
       _text ="Bilangan Prima: ";
-      for(int a=2; a<=_counter; a++){
-        if(a%2 != 0 || a == 2){
-          if(a%3 != 0 || a == 2 || a == 3) {
-            _text += '${a},';
+      for (x = 2; x <= _counter; x++) {
+        y = 0;
+        for (z = 2; z < x; z++) {
+          if (x % z == 0) {
+            y = 1;
           }
+        }
+        if (y == 0) {
+          _text += "${x}, ";
         }
       }
     });
